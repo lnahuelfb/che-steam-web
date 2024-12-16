@@ -20,7 +20,7 @@ const header = () => {
           {links.map((link) => (
             <li key={link.href}>
               <Link href={link.href} className={styles.link}>
-                {link.label}
+                <p>{link.label}</p>
               </Link>
             </li>
           ))}

@@ -1,63 +1,26 @@
-"use client";
+import styles from './page.module.css'
 
-import { useState } from "react";
-import { Game } from "@/types/game";
-import { GameCard } from "@/components/GameCard";
-import styles from "./page.module.css";
-
-export default function Home() {
-  const [games, setGames] = useState<Game[]>([]);
-  const [error, setError] = useState<string>("");
-  const [search, setSearch] = useState<string>("");
-
-  const getGames = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    setError("");
-    try {
-      const res = await fetch(`/api/games?title=${search}`);
-
-      if (!res.ok) {
-        setError(`Error: ${res.statusText}`);
-      }
-
-      const data = await res.json();
-
-      console.log(data);
-      if (!res.ok) {
-        throw new Error(`Error: ${res.statusText}`);
-      }
-      setGames(data);
-    } catch (error) {
-      console.error("Error al buscar juegos:", error);
-    }
-  };
-
+const page = () => {
   return (
-    <article className={styles.main}>
-      <h1>Home</h1>
-      <section>
-        <form onSubmit={getGames} className={styles.search}>
-          <input
-            type="text"
-            id="search"
-            value={search}
-            onChange={(e) => setSearch(e.target.value)}
-            placeholder="Busca tu juego, dlc o bundle"
-            required
-          />
-          <button type="submit">Search</button>
-        </form>
-        {error && <p className={styles.error}>{error}</p>}
-
-        <div className={styles.games}>
-          {
-            games?.map((game) => (
-              <GameCard key={game.id} game={game} />
-            ))
-          }
-        </div>
-
-      </section>
-    </article>
-  );
+    <section className={styles.container}>
+      <figure className={styles.imageContainer}>
+        <img src="/CheSteam.png" alt="Che Steam!" />
+      </figure>
+      <div className={styles.textContainer}>
+        <h1>🎮 Che Steam!</h1>
+        <h2>Conoce el Precio Real de tus Juegos</h2>
+        <h3>
+          Convierte precios de videojuegos en pesos argentinos, con impuestos incluidos 
+          y al tipo de cambio que elijas: dólar tarjeta, MEP o cripto.
+        </h3>
+        <p>
+          Olvídate de los cálculos complicados. Che Steam te muestra el precio final de 
+          tus videojuegos en un segundo.
+        </p>
+        <button className={styles.ctaButton}>Invitar al Bot</button>
+      </div>
+    </section>
+  )
 }
+
+export default page
