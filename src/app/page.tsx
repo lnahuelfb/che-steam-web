@@ -3,7 +3,7 @@ import { Commands } from '@/types'
 import { DiscordLogo } from '@/components/DiscordLogo'
 import styles from './page.module.css'
 
-const page = () => {
+const Page = () => {
   const commands: Commands[] = [
     {
       command: '$precio [nombre del juego]',
@@ -64,4 +64,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

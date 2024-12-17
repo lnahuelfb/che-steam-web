@@ -3,8 +3,8 @@ import { useState, useEffect } from "react"
 import { ChangeLog } from "@/types"
 import styles from "./styles.module.css"
 
-const page = () => {
-  const [changeLog, setChangeLog] = useState<ChangeLog[]>([])
+const Page = () => {
+  const [changeLogs, setChangeLogs] = useState<ChangeLog[]>([])
 
   const getChangeLog = async () => {
     const res = await fetch('/api/changelog')
@@ -13,7 +13,11 @@ const page = () => {
   }
 
   useEffect(() => {
-    getChangeLog().then((data) => setChangeLog(data))
+    const fetchChangeLog = async () => {
+      const data = await getChangeLog()
+      setChangeLogs(data)
+    }
+    fetchChangeLog()
   }, [])
 
   return (
@@ -21,11 +25,11 @@ const page = () => {
       <h1 className={styles.title}>Changelog</h1>
       <article className={styles.article}>
         <ul className={styles.list}>
-          {changeLog?.map((changeLog) => (
-            <li key={changeLog.version} className={styles.changeLog}>
-              <h2 className={styles.version}>{changeLog.version}</h2>
+          {changeLogs?.map((log) => ( 
+            <li key={log.version} className={styles.changeLog}>
+              <h2 className={styles.version}>{log.version}</h2>
               <ul className={styles.changes}>
-                {changeLog.changes.map((change) => (
+                {log.changes.map((change) => (
                   <li key={change.title} className={styles.change}>
                     <h3>{change.title}</h3>
                     {change.description && <p>{change.description}</p>}
@@ -40,4 +44,4 @@ const page = () => {
   )
 }
 
-export default page
+export default Page

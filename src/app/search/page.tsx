@@ -5,7 +5,7 @@ import { Game } from "@/types";
 import { GameCard } from "@/components/GameCard";
 import styles from "./page.module.css";
 
-export default function Home() {
+export default function Page() {
   const [games, setGames] = useState<Game[]>([]);
   const [error, setError] = useState<string>("");
   const [search, setSearch] = useState<string>("");
@@ -88,41 +88,7 @@ export default function Home() {
             ))
           }
         </div>
-
       </article>
     </section>
   );
-
-
-  // return (
-  //   <section className={styles.main}>
-  //     <h1>¡Buscá tus juegos!</h1>
-  //     <article>
-  //       <form onSubmit={getGames} className={styles.search}>
-  //         <input
-  //           type="text"
-  //           id="search"
-  //           value={search}
-  //           onChange={(e) => setSearch(e.target.value)}
-  //           placeholder="Busca tu juego, dlc o bundle"
-  //           required
-  //         />
-  //         <button type="submit">Search</button>
-  //       </form>
-  //       {error && <p className={styles.error}>{error}</p>}
-
-  //       <div className={styles.games}>
-  //         {
-  //           loading && <p>Cargando...</p>
-  //         }
-  //         {
-  //           games?.map((game) => (
-  //             <GameCard key={game.id} game={game} />
-  //           ))
-  //         }
-  //       </div>
-
-  //     </article>
-  //   </section>
-  // );
 }

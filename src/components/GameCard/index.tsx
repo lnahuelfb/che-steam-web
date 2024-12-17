@@ -1,5 +1,6 @@
 import { Game } from "@/types"
 import styles from "./styles.module.css"
+import Image from "next/image"
 
 export const GameCard = ({ game }: { game: Game }) => {
   const type = (game: Game) => {
@@ -17,7 +18,7 @@ export const GameCard = ({ game }: { game: Game }) => {
 
   return (
     <article className={styles.gameCard}>
-      <img className={styles.image} src={game.image} alt={game.name} />
+      <Image className={styles.image} src={game.image} alt={game.name} />
       <div className={styles.infoContainer}>
         <a href={`https://store.steampowered.com/app/${game.id}`} target="_blank" rel="noreferrer">
           <h1 className={styles.title}>{game.name} ({type(game)})</h1>
