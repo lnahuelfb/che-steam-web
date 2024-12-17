@@ -1,0 +1,15 @@
+[
+  {
+    "version": "1.0.0",
+    
+    "changes": [
+      {
+        "type": "release",
+        "title": "Primera versión del proyecto",
+        "description": "Lanzamiento oficial del proyecto, tanto en web, server como el Bot",
+        "scope": "general"
+      }
+    ],
+    "date": "17/12/2024"
+  }
+]

@@ -15,6 +15,11 @@
   padding-left: 5rem;
 }
 
+.textContainer p, .textContainer h1, .textContainer h2, .textContainer h3 {
+  width: 100%;
+  text-align: start;
+}
+
 .textContainer .ctaButton {
   margin-top: 1rem;
   padding: 0.5rem 1rem;
