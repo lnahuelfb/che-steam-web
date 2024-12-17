@@ -1,0 +1,21 @@
+.table {
+  width: 80%;
+  margin: 20px auto;
+  border-collapse: collapse;
+}
+
+.tableHeader,
+.tableCell {
+  padding: 10px;
+  text-align: left;
+  border: 1px solid #CCD8E3;
+}
+
+.table {
+  background-color: var(--primary-bg);
+}
+
+.table p {
+  color: var(--text-primary);
+  font-size: 1.8rem;
+}

@@ -2,17 +2,17 @@ import Link from 'next/link';
 import styles from './styles.module.css'
 import Image from 'next/image';
 
-const header = () => {
+export const Header = () => {
   const links = [
     { href: '/', label: 'Home' },
-    { href: '/changelog', label: 'Changelog' },
     { href: '/search', label: 'Buscar juegos' },
+    { href: '/changelog', label: 'Changelog' },
   ]
 
   return (
     <header className={styles.header}>
       <Link href={'/'} className={styles.link}>
-      <Image src="/CheSteam.png" alt="CheSteam" width={75} height={75} />
+        <Image src="/CheSteam.png" alt="CheSteam" width={50} height={50} />
         <h1 className={styles.title}>Che Steam!</h1>
       </Link>
       <nav className={styles.nav}>
@@ -29,5 +29,3 @@ const header = () => {
     </header>
   )
 }
-
-export default header

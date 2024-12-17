@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { Game } from "@/types/game";
+import { Game } from "@/types";
 import { GameCard } from "@/components/GameCard";
 import styles from "./page.module.css";
 

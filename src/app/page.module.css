@@ -2,6 +2,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: var(--section-padding);
 }
 
 .textContainer {
@@ -10,11 +11,41 @@
   justify-content: center;
   align-items: center;
   text-align: start;
-  width: 100%;
+  width: 50%;
+  padding-left: 5rem;
+}
+
+.textContainer .ctaButton {
+  margin-top: 1rem;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--border);
+  border-radius: 5px;
+  font-size: 1.2rem;
+  background-color: #5865f2;
+  color: white;
+  cursor: pointer;
+  width: fit-content;
+  transition: 0.3s;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ctaButton p {
+  padding-left: 1rem;
+  color: white;
+  font-weight: bold;
 }
 
 .imageContainer {
-  width: 50%;
+  width: 30%;
+  display: flex;
+  justify-content: flex-end;
+
+  @media screen and (max-width: 600px) {
+    display: none;
+  }
 }
 
 .imageContainer img {
@@ -29,6 +60,7 @@
   align-items: center;
   width: 100%;
   gap: 1rem;
+  padding: var(--section-padding);
 }
 
 .ctaContainer {
@@ -38,12 +70,6 @@
   gap: 1rem;
 }
 
-.ctaButton {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: 5px;
-  font-size: 1.2rem;
-  background-color: var(--primary);
-  color: var(--text);
-  cursor: pointer;
+.commandsContainer .title {
+  text-align: center;
 }
