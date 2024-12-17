@@ -21,7 +21,7 @@ export default function Page() {
     }
 
     if (search == lastSearch) {
-      return
+      return;
     }
 
     setGames([]);

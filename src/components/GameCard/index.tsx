@@ -18,7 +18,7 @@ export const GameCard = ({ game }: { game: Game }) => {
 
   return (
     <article className={styles.gameCard}>
-      <Image className={styles.image} src={game.image} alt={game.name} />
+      <Image className={styles.image} src={game.image} alt={game.name} width={231} height={87} />
       <div className={styles.infoContainer}>
         <a href={`https://store.steampowered.com/app/${game.id}`} target="_blank" rel="noreferrer">
           <h1 className={styles.title}>{game.name} ({type(game)})</h1>

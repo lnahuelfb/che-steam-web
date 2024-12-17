@@ -1,25 +1,43 @@
-import Link from 'next/link';
-import styles from './styles.module.css'
-import Image from 'next/image';
+"use client"
+import { useState } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import styles from "./styles.module.css"
 
 export const Header = () => {
+  const [menuOpen, setMenuOpen] = useState(false)
+
   const links = [
-    { href: '/', label: 'Home' },
-    { href: '/search', label: 'Buscar juegos' },
-    { href: '/changelog', label: 'Changelog' },
+    { href: "/", label: "Home" },
+    { href: "/search", label: "Buscar juegos" },
+    { href: "/changelog", label: "Changelog" },
   ]
 
   return (
     <header className={styles.header}>
-      <Link href={'/'} className={styles.link}>
+      <Link href="/" className={styles.link}>
         <Image src="/CheSteam.png" alt="CheSteam" width={50} height={50} />
         <h1 className={styles.title}>Che Steam!</h1>
       </Link>
-      <nav className={styles.nav}>
+      <button
+        className={styles.hamburger}
+        onClick={() => setMenuOpen(!menuOpen)}
+        aria-label="Menu"
+      >
+        ☰
+      </button>
+      <nav className={`${styles.nav} ${menuOpen ? styles.open : ""}`}>
+        <button
+          className={styles.closeBtn}
+          onClick={() => setMenuOpen(false)}
+          aria-label="Close menu"
+        >
+          ✖
+        </button>
         <ul>
           {links.map((link) => (
             <li key={link.href}>
-              <Link href={link.href} className={styles.link}>
+              <Link href={link.href} className={styles.link} onClick={() => setMenuOpen(false)}>
                 <p>{link.label}</p>
               </Link>
             </li>

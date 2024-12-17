@@ -73,7 +73,6 @@
   border: none;
   border-left: 1px solid var(--text-primary);
   cursor: pointer;
-  /* border-radius: 5px; */
   font-size: 1.2rem;
 }
 
@@ -83,7 +82,24 @@
 }
 
 .fieldset {
-  /* border: none; */
   padding: 0;
   margin: 0;
+}
+
+@media (max-width: 768px) {
+  .main {
+    padding: 1rem;
+  }
+
+  .search {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+  }
+
+  .search input {
+width: 340px;
+  }
 }

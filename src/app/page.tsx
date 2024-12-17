@@ -2,6 +2,7 @@ import { CommandsTable } from '@/components/CommandsTable'
 import { Commands } from '@/types'
 import { DiscordLogo } from '@/components/DiscordLogo'
 import styles from './page.module.css'
+import Image from 'next/image'
 
 const Page = () => {
   const commands: Commands[] = [
@@ -35,7 +36,7 @@ const Page = () => {
     <>
       <section className={styles.container}>
         <figure className={styles.imageContainer}>
-          <img src="/CheSteam.png" alt="Che Steam!" />
+          <Image src="/CheSteam.png" alt="Che Steam!" width={250} height={250} />
         </figure>
         <div className={styles.textContainer}>
           <h1>🎮 Che Steam! 🎮</h1>

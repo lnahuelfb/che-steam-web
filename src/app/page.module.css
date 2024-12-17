@@ -47,10 +47,6 @@
   width: 30%;
   display: flex;
   justify-content: flex-end;
-
-  @media screen and (max-width: 600px) {
-    display: none;
-  }
 }
 
 .imageContainer img {
@@ -77,4 +73,20 @@
 
 .commandsContainer .title {
   text-align: center;
+}
+
+@media screen and (max-width: 600px) {
+  .imageContainer {
+    display: none;
+  }
+  
+  .textContainer {
+    flex-direction: column;
+    align-items: start;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    gap: 1rem;
+    padding: var(--section-padding);
+  }
 }
