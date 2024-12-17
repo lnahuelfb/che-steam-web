@@ -49,8 +49,10 @@ const page = () => {
             tus videojuegos en un segundo.
           </p>
           <button className={styles.ctaButton}>
-            <DiscordLogo/>
-            <p>Invitar al Bot</p>
+            <DiscordLogo />
+            <a href="https://discord.com/oauth2/authorize?client_id=1309597307976548472&scope=bot&permissions=3072" target="_blank" rel="noreferrer">
+              <p>Invitar al Bot</p>
+            </a>
           </button>
         </div>
       </section>

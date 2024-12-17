@@ -51,7 +51,7 @@ export default function Home() {
 
         <div className={styles.games}>
           {
-            games?.map((game) => (
+            games && games?.map((game) => (
               <GameCard key={game.id} game={game} />
             ))
           }
