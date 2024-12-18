@@ -70,11 +70,16 @@
   position: absolute;
   top: 1rem;
   right: 1rem;
+  display: none;
 }
 
 @media (max-width: 768px) {
   .hamburger {
     display: block;
+  }
+
+  .closeBtn{
+    display: inline;
   }
 
   .nav {
@@ -89,13 +94,16 @@
     gap: 0;
     text-align: center;
     padding: 2rem 0;
-    transition: left 0.3s ease; /* Aquí aplicamos la transición de la propiedad "left" */
-    justify-content: center; /* Centra las opciones */
+    transition: left 0.3s ease;
+    /* Aquí aplicamos la transición de la propiedad "left" */
+    justify-content: center;
+    /* Centra las opciones */
   }
 
   .nav.open {
     display: flex;
-    left: 0; /* Cuando el menú está abierto, se mueve a la posición 0 */
+    left: 0;
+    /* Cuando el menú está abierto, se mueve a la posición 0 */
   }
 
   .nav ul {
