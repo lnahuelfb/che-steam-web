@@ -11,7 +11,6 @@ export default function Page() {
   const [search, setSearch] = useState<string>("");
   const [lastSearch, setLastSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
-  const [hasSearched, setHasSearched] = useState<boolean>(false);
 
   const getGames = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -48,7 +47,6 @@ export default function Page() {
       setGames([]);
     } finally {
       setLoading(false);
-      setHasSearched(true);
     }
   };
 

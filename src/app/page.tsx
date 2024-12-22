@@ -29,6 +29,10 @@ const Page = () => {
     {
       command: '$hola',
       description: 'Muestra un mensaje de bienvenida'
+    },
+    {
+      command: '$web',
+      description: 'Muestra el enlace de la pagina web del bot'
     }
   ]
 
