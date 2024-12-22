@@ -11,16 +11,17 @@ export default function Page() {
   const [search, setSearch] = useState<string>("");
   const [lastSearch, setLastSearch] = useState<string>("");
   const [loading, setLoading] = useState<boolean>(false);
+  const [hasSearched, setHasSearched] = useState<boolean>(false);
 
   const getGames = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     if (search === "") {
-      setError("Debes escribir el titulo");
+      setError("Debes escribir el título");
       return;
     }
 
-    if (search == lastSearch) {
+    if (search === lastSearch) {
       return;
     }
 
@@ -31,25 +32,26 @@ export default function Page() {
     try {
       const res = await fetch(`/api/games?title=${search}`);
 
-      if (!res.ok) {
-        setError(`Error: ${res.statusText}`);
-      }
-
       const data = await res.json();
 
-
-      if (!res.ok) {
-        throw new Error(`Error: ${res.statusText}`);
+      if (res.ok && Array.isArray(data)) {
+        setGames(data);
+      } else {
+        setGames([]); // Vacía la lista si no se encontraron juegos
+        setError(data.error || "No se encontraron juegos");
       }
 
       setLastSearch(search);
-      setGames(data);
     } catch (error) {
       console.error("Error al buscar juegos:", error);
+      setError("Error al buscar los juegos");
+      setGames([]);
     } finally {
       setLoading(false);
+      setHasSearched(true);
     }
   };
+
 
   return (
     <section className={styles.main}>
@@ -69,7 +71,6 @@ export default function Page() {
             <button type="submit">Buscar</button>
           </fieldset>
         </form>
-        {error && <p className={styles.error}>{error}</p>}
         <p>Referencia:</p>
         <p>
           💵 Precio oficial
@@ -79,14 +80,11 @@ export default function Page() {
           🏛️ Impuestos
         </p>
         <div className={styles.games}>
-          {
-            loading && <p>Cargando...</p>
-          }
-          {
-            games?.map((game) => (
-              <GameCard key={game.id} game={game} />
-            ))
-          }
+          {loading && <p>Cargando...</p>}
+          {error && <h3 className={styles.error}>{error}</h3>}
+
+          {games.length > 0 &&
+            games.map((game) => <GameCard key={game.id} game={game} />)}
         </div>
       </article>
     </section>

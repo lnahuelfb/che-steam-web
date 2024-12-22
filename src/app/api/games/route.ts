@@ -14,6 +14,10 @@ export async function GET(request: Request) {
 
     const data = await response.json();
 
+    if (!data || data.length === 0) {
+      return new Response(JSON.stringify({ error: "No se pudo encontrar el juego." }), { status: 404 });
+    }
+
     return new Response(JSON.stringify(data), { status: 200 });
   } catch (error) {
     console.error(error);
