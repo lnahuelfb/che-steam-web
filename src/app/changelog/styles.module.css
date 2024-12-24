@@ -1,4 +1,129 @@
+/* Contenedor principal */
 .main {
+  padding: var(--section-padding);
+  background-color: var(--secondary-bg);
+  color: var(--text-primary);
+}
+
+/* Título principal */
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: var(--section-padding);
+}
+
+/* Contenedor del artículo */
+.article {
+  margin: 0 auto;
+  background-color: var(--secondary-bg);
+  padding: 1.5rem;
+  border-radius: 8px;
+  border: 1px solid var(--border);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Lista principal */
+.list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Contenedor de cada changelog */
+.changeLog {
+  margin-bottom: 1.5rem;
+  border: 1px solid var(--border);
+  border-radius: 6px;
+  padding: 1rem;
+  transition: box-shadow 0.2s ease;
+  background-color: var(--primary-bg);
+}
+
+.changeLog:hover {
+  box-shadow: 0 4px 8px rgba(102, 192, 244, 0.3);
+}
+
+/* Título de cada versión */
+.version {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--accent);
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
+
+/* Lista de cambios */
+.changes {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Elemento individual de cambio */
+.change {
+  margin-bottom: 1rem;
+}
+
+.change:last-child {
+  margin-bottom: 0;
+}
+
+/* Encabezado del cambio */
+.changeHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Badge del tipo de cambio */
+.typeBadge {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 0.75rem;
+  font-weight: bold;
+  width: 50px;
+  height: 24px; /* Ajuste de altura */
+  padding: 0.3rem 0.6rem; /* Mantiene espacio interno */
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: var(--text-primary);
+  background-color: var(--border); /* Default */
+  text-align: center;
+}
+
+.typeBadge.fix {
+  background-color: #e74c3c; /* Rojo */
+}
+
+.typeBadge.feat {
+  background-color: #27ae60; /* Verde */
+}
+
+.typeBadge.release {
+  background-color: #2980b9; /* Azul */
+}
+
+/* Título del cambio */
+.changeHeader h3 {
+  font-size: 1rem;
+  margin: 0;
+  color: var(--text-primary);
+}
+
+/* Descripción del cambio */
+.description {
+  color: var(--text-secondary);
+  margin: 0.5rem 0 0 1.5rem;
+  border-left: 3px solid var(--border);
+  padding-left: 1rem;
+}
+
+
+
+/* .main {
   padding: 1rem;
   flex: 1;
   display: flex;
@@ -59,3 +184,89 @@
   font-size: 1.2rem;
   font-weight: bold;
 }
+
+/* styles.module.css */
+
+/* General list styling */
+/* .list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.changeLog {
+  margin-bottom: 2rem;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 1rem;
+  background-color: #f9f9f9;
+  transition: box-shadow 0.2s ease;
+}
+
+.changeLog:hover {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.version {
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  margin: 0 0 1rem 0;
+  color: #333;
+}
+
+.version:hover {
+  color: #0070f3;
+  text-decoration: underline;
+}
+
+/* Inner changes list
+.changes {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.change {
+  margin-bottom: 1rem;
+}
+
+.change:last-child {
+  margin-bottom: 0;
+}
+
+.changeHeader {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.typeBadge {
+  font-size: 0.875rem;
+  font-weight: bold;
+  padding: 0.2rem 0.5rem;
+  border-radius: 4px;
+  text-transform: uppercase;
+  color: #fff;
+}
+
+.typeBadge.fix {
+  background-color: #e53935;
+}
+
+.typeBadge.feature {
+  background-color: #43a047;
+}
+
+.typeBadge.docs {
+  background-color: #1e88e5;
+}
+
+.description {
+  font-size: 0.875rem;
+  color: #555;
+  margin: 0;
+  padding-left: 1.5rem;
+  border-left: 2px solid #e0e0e0;
+} */

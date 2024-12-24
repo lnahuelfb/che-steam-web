@@ -25,14 +25,17 @@ const Page = () => {
       <h1 className={styles.title}>Changelog</h1>
       <article className={styles.article}>
         <ul className={styles.list}>
-          {changeLogs?.map((log) => ( 
+          {changeLogs?.map((log) => (
             <li key={log.version} className={styles.changeLog}>
               <h2 className={styles.version}>{log.version}</h2>
               <ul className={styles.changes}>
                 {log.changes.map((change) => (
                   <li key={change.title} className={styles.change}>
-                    <h3>{change.title}</h3>
-                    {change.description && <p>{change.description}</p>}
+                    <div className={styles.changeHeader}>
+                      <span className={`${styles.typeBadge} ${styles[change.type]}`}>{change.type}</span>
+                      <h3>{change.title} ({change.scope})</h3>
+                    </div>
+                    {change.description && <p className={styles.description}>{change.description}</p>}
                   </li>
                 ))}
               </ul>

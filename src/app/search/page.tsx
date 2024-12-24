@@ -53,7 +53,7 @@ export default function Page() {
 
   return (
     <section className={styles.main}>
-      <h1>¡Buscá tus juegos!</h1>
+      <h1 className={styles.title}>¡Buscá tus juegos!</h1>
       <article>
         <form onSubmit={getGames} className={styles.search}>
           <fieldset className={styles.fieldset}>
@@ -66,17 +66,23 @@ export default function Page() {
               placeholder="Busca tu juego, DLC o bundle"
               required
             />
-            <button type="submit">Buscar</button>
+            <button type="submit" className={styles.button}>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="11" cy="11" r="8" />
+                <line x1="21" y1="21" x2="16.65" y2="16.65" />
+              </svg>
+            </button>
+
           </fieldset>
         </form>
         <p>Referencia:</p>
-        <p>
-          💵 Precio oficial
-          💳 Precio dolar Tarjeta impuestos incluidos
-          💰 Precio dolar MEP impuestos incluidos
-          🪙 Precio dolar Crypto
-          🏛️ Impuestos
-        </p>
+        <ul className={styles.referenceList}>
+          <li>💵 <strong>Precio oficial</strong></li>
+          <li>💳 <strong>Precio dólar tarjeta</strong></li>
+          <li>💰 <strong>Precio dólar MEP</strong></li>
+          <li>🪙 <strong>Precio dólar Crypto</strong></li>
+          <li>🏛️ <strong>Impuestos</strong></li>
+        </ul>
         <div className={styles.games}>
           {loading && <p>Cargando...</p>}
           {error && <h3 className={styles.error}>{error}</h3>}

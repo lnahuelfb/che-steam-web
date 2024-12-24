@@ -15,13 +15,23 @@
   padding-left: 5rem;
 }
 
-.textContainer p, .textContainer h1, .textContainer h2, .textContainer h3 {
+.textContainer h1 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: var(--section-padding);
+}
+
+.textContainer p,
+.textContainer h1,
+.textContainer h2,
+.textContainer h3 {
   width: 100%;
   text-align: start;
 }
 
 .textContainer .ctaButton {
-  margin-top: 1rem;
   padding: 0.5rem 1rem;
   border: 1px solid var(--border);
   border-radius: 5px;
@@ -41,6 +51,11 @@
   padding-left: 1rem;
   color: white;
   font-weight: bold;
+}
+
+.ctaButton {
+  height: 4rem;
+  margin-top: 0;
 }
 
 .imageContainer {
@@ -71,15 +86,36 @@
   gap: 1rem;
 }
 
+.ctaButton a:hover {
+  text-decoration: none;
+}
+
 .commandsContainer .title {
   text-align: center;
 }
+
+.buttonsContainer {
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.textContainer p,
+.textContainer h1,
+.textContainer h2,
+.textContainer h3 {
+  margin: 1rem;
+}
+
 
 @media screen and (max-width: 600px) {
   .imageContainer {
     display: none;
   }
-  
+
   .textContainer {
     flex-direction: column;
     align-items: start;

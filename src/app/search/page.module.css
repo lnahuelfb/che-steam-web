@@ -11,16 +11,19 @@
   color: var(--text-primary);
 }
 
-.main h1 {
-  font-size: 1.5rem;
-  margin: 0;
-  line-height: 1.5;
-  font-weight: 700;
+.title {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--accent);
+  text-align: center;
+  margin-bottom: var(--section-padding);
 }
 
 .games {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
 }
 
 .search {
@@ -30,76 +33,112 @@
   gap: 1rem;
 }
 
-.search label {
+.search input,
+.search button {
+  padding: 0.5rem;
   font-size: 1.2rem;
+  background-color: transparent;
+  color: var(--text-primary);
+  border: none;
+  transition: 0.3s;
 }
 
 .search input {
-  padding: 0.5rem;
-  border-radius: 5px;
-  font-size: 1.2rem;
-  background-color: transparent;
-  color : var(--text-primary);
-  transition: 0.3s;
-  border: none;
   width: 400px;
   margin-bottom: 5px;
-  
-  &:focus {
-    border: none;
-    outline: none;
-  }
+}
+
+.search input:focus,
+.search button:focus {
+  outline: none;
+}
+
+.search button {
+  border-left: 1px solid var(--text-primary);
+  cursor: pointer;
 }
 
 .search input:-webkit-autofill {
   background-color: transparent !important;
+  -webkit-text-fill-color: var(--text-primary) !important;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-  -webkit-text-fill-color: inherit;
   transition: background-color 5000s ease-in-out 0s;
-  color: inherit !important
+  color: inherit !important;
 }
 
 .search input:-webkit-autofill:focus {
   background-color: transparent !important;
   -webkit-box-shadow: 0 0 0px 1000px transparent inset;
-  color: inherit!important;
+  color: var(--text-primary) !important;
 }
 
-.search button {
-  padding: 0.5rem 1rem;
-  background-color: transparent;
-  color: var(--text-primary);
-  transition: 0.3s;
-  border: none;
-  border-left: 1px solid var(--text-primary);
-  cursor: pointer;
-  font-size: 1.2rem;
+
+.search input:-moz-autofill {
+  color: var(--text-primary) !important;
+  background-color: transparent !important;
 }
 
-.legend {
-  font-size: 1.2rem;
+.referenceList {
+  list-style: none;
+  padding: 0;
+  margin: 1rem 0;
+  display: flex;
+  gap: 0.5rem;
+}
+
+.referenceList li {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.referenceList strong {
+  font-size: inherit;
   font-weight: bold;
 }
 
+.games p,
+.games span,
+.games h3 {
+  text-align: center;
+  font-size: 1.2rem;
+  margin: 1rem 0;
+}
+
+.games p,
+.games h3 {
+  color: var(--accent);
+}
+
+.legend,
 .fieldset {
+  font-size: 1.2rem;
+  font-weight: bold;
   padding: 0;
   margin: 0;
 }
 
+.button svg {
+  width: 16px;
+  height: 16px;
+  vertical-align: middle;
+}
+
 @media (max-width: 768px) {
-  .main {
-    padding: 1rem;
-  }
-
-  .search {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 1rem;
-    margin-bottom: 1rem;
-  }
-
   .search input {
-width: 340px;
+    width: 340px;
+    font-size: 1rem;
+    padding: 0.4rem;
+  }
+
+  .search button {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+
+  .games {
+    flex-direction: column;
+    align-items: center;
   }
 }

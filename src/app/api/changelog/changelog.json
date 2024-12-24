@@ -1,5 +1,17 @@
 [
   {
+    "version": "1.0.2",
+    "changes": [
+      {
+        "type": "feat",
+        "title": "Mejoras en el diseño de la web",
+        "description": "Se mejoró la experiencia de usuario con cambios en el diseño de la sección de búsqueda de juegos y la sección del changelog.",
+        "scope": "web"
+      }
+    ],
+    "date": "24/12/2024"
+  },
+  {
     "version": "1.0.1",
     "changes": [
       {

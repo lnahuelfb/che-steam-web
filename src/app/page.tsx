@@ -53,12 +53,17 @@ const Page = () => {
             Olvídate de los cálculos complicados. Che Steam te muestra el precio final de
             tus videojuegos en un segundo.
           </p>
-          <button className={styles.ctaButton}>
-            <DiscordLogo />
-            <a href="https://discord.com/oauth2/authorize?client_id=1309597307976548472&scope=bot&permissions=3072" target="_blank" rel="noreferrer">
-              <p>Invitar al Bot</p>
+          <div className={styles.buttonsContainer}>
+            <button className={styles.ctaButton}>
+              <DiscordLogo />
+              <a href="https://discord.com/oauth2/authorize?client_id=1309597307976548472&scope=bot&permissions=3072" target="_blank" rel="noreferrer">
+                <p>Invitar al Bot</p>
+              </a>
+            </button>
+            <a href='https://cafecito.app/che-steam' rel='noopener' target='_blank'>
+              <img srcSet='https://cdn.cafecito.app/imgs/buttons/button_5.png 1x, https://cdn.cafecito.app/imgs/buttons/button_5_2x.png 2x, https://cdn.cafecito.app/imgs/buttons/button_5_3.75x.png 3.75x' src='https://cdn.cafecito.app/imgs/buttons/button_5.png' alt='Invitame un café en cafecito.app' />
             </a>
-          </button>
+          </div>
         </div>
       </section>
       <section className={styles.commandsContainer}>
