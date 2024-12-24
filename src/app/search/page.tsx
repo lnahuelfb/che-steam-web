@@ -85,9 +85,9 @@ export default function Page() {
         </ul>
         <div className={styles.games}>
           {loading && <p>Cargando...</p>}
-          {error && <h3 className={styles.error}>{error}</h3>}
+          {error && <h3>{error}</h3>}
 
-          {games.length > 0 &&
+          {games?.length > 0 &&
             games.map((game) => <GameCard key={game.id} game={game} />)}
         </div>
       </article>

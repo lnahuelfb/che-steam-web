@@ -31,6 +31,8 @@
   align-items: center;
   justify-content: center;
   gap: 1rem;
+  margin: 1rem;
+  margin-bottom: 2rem;
 }
 
 .search input,
@@ -140,5 +142,14 @@
   .games {
     flex-direction: column;
     align-items: center;
+  }
+
+  .referenceList {
+    gap: .6rem;
+  }
+
+  .referenceList li {
+    flex-direction: column;
+    align-items: start;
   }
 }
