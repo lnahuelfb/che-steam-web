@@ -1,0 +1,226 @@
+.card {
+  font-family: Arial, sans-serif;
+  background-color: #1b2838;
+  /* Fondo principal: azul oscuro */
+  color: #c7d5e0;
+  /* Texto principal: gris claro */
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
+  max-width: 900px;
+  margin: 20px auto;
+}
+
+.headerImage img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+}
+
+.info {
+  margin-top: 20px;
+}
+
+.name {
+  font-size: 28px;
+  color: #66c0f4;
+  /* Color de acento: azul celeste */
+  font-weight: bold;
+}
+
+.description {
+  font-size: 16px;
+  color: #8f98a0;
+  /* Texto secundario: gris medio */
+  line-height: 1.6;
+}
+
+.price {
+  margin-top: 15px;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.free {
+  color: #28a745;
+  /* Verde para "gratis" */
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.initialPrice {
+  color: #8f98a0;
+  /* Precio original: gris medio */
+  font-size: 18px;
+  text-decoration: line-through;
+  margin-right: 10px;
+}
+
+.finalPrice {
+  color: #66c0f4;
+  /* Color de acento: azul celeste */
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.discount {
+  margin-left: 10px;
+  color: #28a745;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.packages {
+  margin-top: 30px;
+}
+
+.packageGroup {
+  margin-bottom: 20px;
+}
+
+.packageGroup h4 {
+  color: #66c0f4;
+  /* Color de acento: azul celeste */
+  margin-bottom: 10px;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 10px;
+  background-color: #171a21;
+  /* Fondo secundario: gris muy oscuro */
+  border-radius: 10px;
+}
+
+.table th,
+.table td {
+  padding: 12px 15px;
+  text-align: left;
+  border-bottom: 1px solid #2a475e;
+  /* Bordes: azul grisáceo */
+}
+
+.table th {
+  background-color: #282c34;
+  /* Fondo oscuro para encabezados */
+  color: #66c0f4;
+  /* Color de acento: azul celeste */
+}
+
+.table tr:nth-child(even) {
+  background-color: #3a3a3a;
+  /* Gris oscuro para filas alternadas */
+}
+
+.table tr:hover {
+  background-color: #2a475e;
+  /* Bordes: azul grisáceo */
+}
+
+.table td {
+  color: #8f98a0;
+  /* Texto secundario: gris medio */
+}
+
+.table th,
+.table td {
+  font-size: 16px;
+}
+
+.table tr:last-child td {
+  border-bottom: none;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+    margin: 10px;
+  }
+
+  .name {
+    font-size: 22px;
+  }
+
+  .description {
+    font-size: 14px;
+  }
+
+  .price {
+    font-size: 16px;
+  }
+
+  .initialPrice,
+  .finalPrice {
+    font-size: 16px;
+  }
+
+  .discount {
+    font-size: 1.5rem;
+  }
+
+  .packages {
+    margin-top: 20px;
+  }
+
+  .packageGroup h4 {
+    font-size: 18px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 14px;
+    padding: 10px 12px;
+  }
+
+  .table {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .card {
+    padding: 10px;
+    margin: 5px;
+  }
+
+  .name {
+    font-size: 20px;
+  }
+
+  .description {
+    font-size: 12px;
+  }
+
+  .price {
+    font-size: 14px;
+  }
+
+  .initialPrice,
+  .finalPrice {
+    font-size: 14px;
+  }
+
+  .discount {
+    font-size: 1.2rem;
+  }
+
+  .packages {
+    margin-top: 15px;
+  }
+
+  .packageGroup h4 {
+    font-size: 16px;
+  }
+
+  .table th,
+  .table td {
+    font-size: 12px;
+    padding: 8px 10px;
+  }
+
+  .table {
+    font-size: 12px;
+  }
+}

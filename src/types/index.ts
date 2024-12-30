@@ -12,6 +12,43 @@ export interface Game {
   formattedCryptoTaxes: string;
 }
 
+export interface GameDetails {
+  id: string,
+  name: string,
+  isFree: boolean,
+  type: string,
+  headerImage: string,
+  description: string,
+  priceOverview: PriceOverview,
+  packageGroups: PackageGroup[],
+}
+
+type PriceOverview = {
+  initial: number,
+  final: number,
+  priceOficial: number,
+  priceMep: number,
+  priceCrypto: number,
+  discount: boolean,
+  discountPercent: number,
+}
+
+type PackageGroup = {
+  title: string,
+  subs: Package[]
+}
+
+type Package = {
+  id: number,
+  title: string,
+  price: number,
+  priceOficial: number,
+  priceMep: number,
+  priceCrypto: number,
+  discount: string,
+}
+
+
 export interface Commands {
   command: string
   description: string

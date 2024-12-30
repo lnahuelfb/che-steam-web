@@ -1,5 +1,6 @@
 import { Game } from "@/types"
 import styles from "./styles.module.css"
+import Link from "next/link"
 import Image from "next/image"
 
 export const GameCard = ({ game }: { game: Game }) => {
@@ -67,6 +68,12 @@ export const GameCard = ({ game }: { game: Game }) => {
             </p>
           </li>
         </ul>
+        <Link href={`/games/${game.id}`}>
+          <p>
+            Ver más
+          </p>
+        </Link>
+
       </div>
     </article>
 
