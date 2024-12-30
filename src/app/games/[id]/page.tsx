@@ -1,23 +1,28 @@
 import { GameDetails } from "@/types";
-import GameDetailsCard from '../../../components/GameDetails/index';
+import GameDetailsCard from "@/components/GameDetails/index";
 
-async function fetchGameDetails(id: string) {
+interface PageProps {
+  params: { id: string };
+}
+
+async function fetchGameDetails(id: string): Promise<GameDetails> {
   const response = await fetch(`https://che-steam-backend.vercel.app/api/games/details/${id}`);
+  if (!response.ok) {
+    throw new Error("Failed to fetch game details");
+  }
   const data: GameDetails = await response.json();
-
-  console.log(data.packageGroups?.map((group) => group.subs.map((pkg) => pkg)));
-
   return data;
 }
 
-export default async function GamePage({ params }: { params: { id: string } }) {
-  const { id } = await params;
+export default async function GamePage(context: { params: Promise<PageProps["params"]> }) {
+  const params = await context.params; // Espera a que `params` se resuelva
+  const { id } = params;
 
   const game = await fetchGameDetails(id);
 
   return (
-    <>
+    <div>
       <GameDetailsCard game={game} />
-    </>
+    </div>
   );
 }

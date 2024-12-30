@@ -26,7 +26,6 @@ export default function GameDetailsCard({ game }: { game: GameDetails }) {
           <span className={styles.free}>Gratis</span>
         ) : (
           <>
-            {/* Precio en pesos */}
             <div>
               <span className={styles.initialPrice}>
                 {formatPrice(game.priceOverview.priceOficial)}
@@ -66,10 +65,10 @@ export default function GameDetailsCard({ game }: { game: GameDetails }) {
                   {group.subs.map((sub, subIndex) => (
                     <tr key={subIndex}>
                       <td>{sub.title}</td>
-                      <td>${sub.price} USD</td> {/* Precio en USD */}
-                      <td>{formatPrice(sub.priceOficial)}</td> {/* Precio oficial en ARS */}
-                      <td>{formatPrice(sub.priceMep)}</td> {/* Precio MEP en ARS */}
-                      <td>{formatPrice(sub.priceCrypto)}</td> {/* Precio en criptomonedas en ARS */}
+                      <td>${sub.price} USD</td>
+                      <td>{formatPrice(sub.priceOficial)}</td>
+                      <td>{formatPrice(sub.priceMep)}</td>
+                      <td>{formatPrice(sub.priceCrypto)}</td>
                     </tr>
                   ))}
                 </tbody>
