@@ -1,22 +1,24 @@
-import { Game } from "@/types"
-import styles from "./styles.module.css"
-import Link from "next/link"
-import Image from "next/image"
+import { Game } from "@/types";
+import styles from "./styles.module.css";
+import Link from "next/link";
+import Image from "next/image";
 
 export const GameCard = ({ game }: { game: Game }) => {
+  const typeLabels: Record<Game["type"], string> = {
+    game: "Juego",
+    dlc: "DLC",
+    bundle: "Bundle",
+  };
 
-  const type = (game: Game) => {
-    switch (game.type) {
-      case 'game':
-        return 'Juego'
-      case 'dlc':
-        return 'DLC'
-      case 'bundle':
-        return 'Bundle'
-      default:
-        return 'Juego'
-    }
-  }
+  const gameType = typeLabels[game.type] || "Juego";
+
+  const renderPriceRow = (label: string, value: string) => (
+    <li className={styles.priceRow}>
+      <p>
+        {label} {value}
+      </p>
+    </li>
+  );
 
   return (
     <article className={styles.gameCard}>
@@ -35,47 +37,25 @@ export const GameCard = ({ game }: { game: Game }) => {
           className={styles.titleLink}
           aria-label={`Ver más sobre el juego ${game.name} en la tienda de Steam`}
         >
-          <h1 className={styles.title}>
-            {game.name} <span className={styles.typeBadge}>{type(game)}</span>
-          </h1>
+          <h1 className={styles.title}>{game.name}</h1>
+          <span className={styles.typeBadge}>{gameType}</span>
         </a>
         <ul className={styles.priceContainer}>
-          <li className={`${styles.priceRow} ${styles.freePrice}`}>
-
-            {game.formattedPrice === 'Gratis'
-              ? <span className={styles.freePrice}>¡Gratis!</span>
-              : <span className={styles.freePrice}>
-                💵 {game.formattedPrice}{' '}USD
-              </span>
-            }
-
-          </li>
-          <li className={styles.priceRow}>
-            <p>
-              💳 {game.formattedTotalOfficialPrice} (🏛️
-              {game.formattedOfficialTaxes})
-            </p>
-          </li>
-          <li className={styles.priceRow}>
-            <p>
-              💰 {game.formattedTotalMepPrice} (🏛️{game.formattedMepTaxes})
-            </p>
-          </li>
-          <li className={styles.priceRow}>
-            <p>
-              🪙 {game.formattedTotalCryptoPrice} (🏛️
-              {game.formattedCryptoTaxes})
-            </p>
-          </li>
+          {game.formattedPrice === "Gratis" ? (
+            <li className={styles.priceRow}>
+              <span className={styles.priceHighlight}>¡Gratis!</span>
+            </li>
+          ) : (
+            renderPriceRow("💵", `${game.formattedPrice} USD`)
+          )}
+          {renderPriceRow("💳", `${game.formattedTotalOfficialPrice} (🏛️${game.formattedOfficialTaxes})`)}
+          {renderPriceRow("💰", `${game.formattedTotalMepPrice} (🏛️${game.formattedMepTaxes})`)}
+          {renderPriceRow("🪙", `${game.formattedTotalCryptoPrice} (🏛️${game.formattedCryptoTaxes})`)}
         </ul>
         <Link href={`/games/${game.id}`}>
-          <p>
-            Ver más
-          </p>
+          <p className={styles.link}>Ver más</p>
         </Link>
-
       </div>
     </article>
-
-  )
-}
+  );
+};

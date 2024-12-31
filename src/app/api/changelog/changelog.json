@@ -1,5 +1,28 @@
 [
   {
+    "version": "1.1.0",
+    "changes": [
+      {
+        "type": "feat",
+        "title": "Añadida sección para ver más detalles de los juegos",
+        "description": "Se añadió una nueva sección para mostrar más detalles de los juegos, incluyendo una breve descripción y las diferentes versiones disponibles.",
+        "scope": "web"
+      },
+      {
+        "type": "feat",
+        "title": "Mejorado el diseño de la web",
+        "description": "Se ha mejorado el diseño visual de la web para hacerla más atractiva y fácil de usar.",
+        "scope": "web"
+      },
+      {
+        "type": "feat",
+        "title": "Añadido soporte para ver más detalles de los juegos en el backend",
+        "description": "Se añadió soporte en el backend para poder mostrar más detalles de los juegos, como una breve descripción y las distintas versiones disponibles.",
+        "scope": "backend"
+      }
+    ]
+  },
+  {
     "version": "1.0.2",
     "changes": [
       {

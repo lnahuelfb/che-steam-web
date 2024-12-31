@@ -9,13 +9,15 @@ export const CommandsTable = ({ commands }: { commands: Commands[] }) => {
           <th className={styles.tableHeader}><p>Comando</p></th>
           <th className={styles.tableHeader}><p>Descripción</p></th>
         </tr>
+      </thead>
+      <tbody>
         {commands?.map(({ command, description }, index) => (
-          <tr key={index}>
+          <tr key={index} className={styles.tableRow}>
             <td className={styles.tableCell}><p>{command}</p></td>
             <td className={styles.tableCell}><p>{description}</p></td>
           </tr>
         ))}
-      </thead>
+      </tbody>
     </table>
   )
 }

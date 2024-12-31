@@ -2,17 +2,17 @@ import { config } from "@/config";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
-  const title = searchParams.get("title");
+  const id = searchParams.get("id");
 
-  if (!title) {
+  if (!id) {
     return new Response(
-      JSON.stringify({ error: "Debe proporcionar un título para buscar." }),
+      JSON.stringify({ error: "Debe proporcionar un id para buscar." }),
       { status: 400 }
     );
   }
 
   try {
-    const response = await fetch(`${config.apiURL}/games/${title}`);
+    const response = await fetch(`${config.apiURL}/games/details/${id}`);
 
     const data = await response.json();
 

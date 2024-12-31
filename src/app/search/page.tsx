@@ -36,7 +36,7 @@ export default function Page() {
       if (res.ok && Array.isArray(data)) {
         setGames(data);
       } else {
-        setGames([]); // Vacía la lista si no se encontraron juegos
+        setGames([]);
         setError(data.error || "No se encontraron juegos");
       }
 
@@ -75,14 +75,35 @@ export default function Page() {
 
           </fieldset>
         </form>
-        <p>Referencia:</p>
-        <ul className={styles.referenceList}>
-          <li>💵 <strong>Precio oficial</strong></li>
-          <li>💳 <strong>Precio dólar tarjeta</strong></li>
-          <li>💰 <strong>Precio dólar MEP</strong></li>
-          <li>🪙 <strong>Precio dólar Crypto</strong></li>
-          <li>🏛️ <strong>Impuestos</strong></li>
-        </ul>
+
+        <div className={styles.referenceContainer}>
+          <p className={styles.referenceTitle}>
+            Referencia de precios (incluyen impuestos):
+          </p>
+          <div className={styles.referenceRow}>
+            <div className={styles.referenceItem}>
+              <span className={styles.icon}>💵</span>
+              <p>Precio oficial</p>
+            </div>
+            <div className={styles.referenceItem}>
+              <span className={styles.icon}>💳</span>
+              <p>Precio dólar tarjeta</p>
+            </div>
+            <div className={styles.referenceItem}>
+              <span className={styles.icon}>💰</span>
+              <p>Precio dólar MEP</p>
+            </div>
+            <div className={styles.referenceItem}>
+              <span className={styles.icon}>🪙</span>
+              <p>Precio dólar Crypto</p>
+            </div>
+            <div className={styles.referenceItem}>
+              <span className={styles.icon}>🏛️</span>
+              <p>Impuestos</p>
+            </div>
+          </div>
+        </div>
+
         <div className={styles.games}>
           {loading && <p>Cargando...</p>}
           {error && <h3>{error}</h3>}

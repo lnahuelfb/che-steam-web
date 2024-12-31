@@ -80,25 +80,50 @@
   background-color: transparent !important;
 }
 
-.referenceList {
-  list-style: none;
-  padding: 0;
-  margin: 1rem 0;
-  display: flex;
-  gap: 0.5rem;
+.referenceContainer {
+  margin-top: 16px;
+  padding: 12px;
+  text-align: center;
 }
 
-.referenceList li {
-  font-size: 1.5rem;
+.referenceTitle {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.referenceRow {
+  display: flex;
+  justify-content: center;
+  /* Centra los elementos horizontalmente */
+  gap: 12px;
+  /* Espaciado entre los elementos */
+  flex-wrap: wrap;
+  /* Hace que los elementos se ajusten si no caben */
+}
+
+.referenceItem {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 6px;
+  background-color: var(--primary-bg);
+  padding: 6px 10px;
+  border-radius: 6px;
+  justify-content: center;
 }
 
-.referenceList strong {
-  font-size: inherit;
-  font-weight: bold;
+.referenceItem p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  margin: 0;
 }
+
+.icon {
+  font-size: 1.3rem;
+  color: var(--accent);
+}
+
 
 .games p,
 .games span,
