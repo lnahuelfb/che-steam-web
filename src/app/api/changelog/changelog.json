@@ -1,5 +1,22 @@
 [
   {
+    "version": "1.1.1",
+    "changes": [
+      {
+        "type": "fix",
+        "title": "Corregido error al mostrar el precio en los detalles del juego",
+        "description": "Se corrigió un error que mostraba incorrectamente el precio inicial en la sección de detalles. Aunque se mostraba correctamente en la tabla, se mostraba un precio incorrecto en la parte superior de la página.",
+        "scope": "web"
+      },
+      {
+        "type": "feat",
+        "title": "Añadido cálculo del precio inicial en pesos argentinos",
+        "description": "Se añadió el cálculo del precio inicial en pesos argentinos en la sección de detalles. Esto permite ver el precio en pesos antes de aplicar el descuento de Steam.",
+        "scope": "backend"
+      }
+    ]
+  },
+  {
     "version": "1.1.0",
     "changes": [
       {

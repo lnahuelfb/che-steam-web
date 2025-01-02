@@ -25,6 +25,7 @@ export interface GameDetails {
 
 type PriceOverview = {
   initial: number,
+  initialARS: number,
   final: number,
   priceOficial: number,
   priceMep: number,
