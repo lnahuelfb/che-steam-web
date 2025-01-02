@@ -40,7 +40,33 @@
   font-size: 18px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
 }
+
+.steamLink {
+  display: inline-block;
+  padding: 10px 20px;
+  background-color: #5c7e10; /* Verde oscuro característico de Steam */
+  color: #ffffff; /* Texto blanco para contraste */
+  text-decoration: none; /* Quitar el subrayado */
+  border-radius: 5px; /* Bordes redondeados */
+  font-weight: bold;
+  font-size: 14px;
+  text-align: center;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+}
+
+.steamLink:hover {
+  background-color: #698d13; /* Verde más claro al pasar el mouse */
+  transform: scale(1.05); /* Ligeramente más grande */
+  text-decoration: none;
+}
+
+.steamLink:active {
+  transform: scale(0.95); /* Reducir tamaño al hacer clic */
+}
+
 
 .free {
   color: #28a745;

@@ -1,7 +1,6 @@
 import { Game } from "@/types";
 import styles from "./styles.module.css";
 import Link from "next/link";
-import Image from "next/image";
 
 export const GameCard = ({ game }: { game: Game }) => {
   const typeLabels: Record<Game["type"], string> = {
@@ -22,12 +21,10 @@ export const GameCard = ({ game }: { game: Game }) => {
 
   return (
     <article className={styles.gameCard}>
-      <Image
+      <img
         className={styles.image}
         src={game.image}
         alt={game.name}
-        width={231}
-        height={87}
       />
       <div className={styles.infoContainer}>
         <a
@@ -52,10 +49,21 @@ export const GameCard = ({ game }: { game: Game }) => {
           {renderPriceRow("💰", `${game.formattedTotalMepPrice} (🏛️${game.formattedMepTaxes})`)}
           {renderPriceRow("🪙", `${game.formattedTotalCryptoPrice} (🏛️${game.formattedCryptoTaxes})`)}
         </ul>
-        <Link href={`/games/${game.id}`}>
-          <p className={styles.link}>Ver más</p>
-        </Link>
+        <div className={styles.linksContainer}>
+          <Link href={`/games/${game.id}`}>
+            <p className={styles.link}>Ver más</p>
+          </Link>
+          <a
+            href={`https://store.steampowered.com/app/${game.id}`}
+            target="_blank"
+            rel="noreferrer"
+          >
+            <p className={styles.link}>
+              Ver en Steam
+            </p>
+          </a>
+        </div>
       </div>
-    </article>
+    </article >
   );
 };

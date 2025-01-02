@@ -1,7 +1,6 @@
 "use client"
 import { useState } from "react"
 import Link from "next/link"
-import Image from "next/image"
 import styles from "./styles.module.css"
 
 export const Header = () => {
@@ -16,7 +15,9 @@ export const Header = () => {
   return (
     <header className={styles.header}>
       <Link href="/" className={styles.link}>
-        <Image src="/CheSteam.png" alt="CheSteam" width={50} height={50} />
+        <img src="/CheSteam.png" alt="CheSteam" className={styles.logo}
+          // width={50} height={50}
+        />
         <h1 className={styles.title}>Che Steam!</h1>
       </Link>
       <button

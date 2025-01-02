@@ -25,21 +25,49 @@ export default function GameDetailsCard({ game }: { game: GameDetails }) {
           <span className={styles.free}>Gratis</span>
         ) : (
           <>
-            <div>
-              <span className={styles.initialPrice}>
-                {formatPrice(game.priceOverview.initialARS)}
-              </span>
-              {game.priceOverview.discount && (
-                <span className={styles.finalPrice}>
-                  {formatPrice(game.priceOverview.priceOficial)}
-                </span>
-              )}
-              {game.priceOverview.discount && (
-                <span className={styles.discount}>
-                  {game.priceOverview.discountPercent}% OFF
-                </span>
-              )}
-            </div>
+            {game.priceOverview.discount
+              ? (
+                <>
+                  <div className={styles.priceContainer}>
+                    <span className={styles.initialPrice}>
+                      {formatPrice(game.priceOverview.initialARS)}
+                    </span>
+                    {game.priceOverview.discount && (
+                      <span className={styles.finalPrice}>
+                        {formatPrice(game.priceOverview.priceOficial)}
+                      </span>
+                    )}
+                    {game.priceOverview.discount && (
+                      <span className={styles.discount}>
+                        {game.priceOverview.discountPercent}% OFF
+                      </span>
+                    )}
+                  </div>
+                  <a
+                    href={`https://store.steampowered.com/app/${game.id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.steamLink}
+                  >
+                    Ver en Steam
+                  </a>
+                </>
+              )
+              : (
+                <>
+                  <span className={styles.finalPrice}>
+                    {formatPrice(game.priceOverview.initialARS)}
+                  </span>
+                  <a
+                    href={`https://store.steampowered.com/app/${game.id}`}
+                    target="_blank"
+                    rel="noreferrer"
+                    className={styles.steamLink}>
+                    Ver en Steam
+                  </a>
+                </>
+              )
+            }
           </>
         )}
       </div>

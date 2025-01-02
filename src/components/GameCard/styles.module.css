@@ -16,6 +16,8 @@
 }
 
 .image {
+  width: 231px;
+  height: 130px;
   border-radius: 8px;
   object-fit: fill;
   width: 100%;
@@ -98,4 +100,10 @@
   border-color: var(--button-hover);
   color: var(--text-primary);
   text-decoration: none;
+}
+
+.linksContainer {
+  display: flex;
+  gap: 8px;
+  justify-content: space-between;
 }
