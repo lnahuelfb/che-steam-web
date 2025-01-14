@@ -1,14 +1,6 @@
 import { GameDetails } from '@/types';
+import { formatPrice } from '@/utils/formatPrice';
 import styles from './styles.module.css';
-
-const formatPrice = (price: number) => {
-  return new Intl.NumberFormat('es-AR', {
-    style: 'currency',
-    currency: 'ARS',
-    minimumFractionDigits: 2,
-    maximumFractionDigits: 2,
-  }).format(price);
-};
 
 export default function GameDetailsCard({ game }: { game: GameDetails }) {
   return (

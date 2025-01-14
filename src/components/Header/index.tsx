@@ -9,15 +9,14 @@ export const Header = () => {
   const links = [
     { href: "/", label: "Home" },
     { href: "/search", label: "Buscar juegos" },
+    { href: "/calculator", label: "Calcula el precio" },
     { href: "/changelog", label: "Changelog" },
   ]
 
   return (
     <header className={styles.header}>
       <Link href="/" className={styles.link}>
-        <img src="/CheSteam.png" alt="CheSteam" className={styles.logo}
-          // width={50} height={50}
-        />
+        <img src="/CheSteam.png" alt="CheSteam" className={styles.logo} />
         <h1 className={styles.title}>Che Steam!</h1>
       </Link>
       <button
