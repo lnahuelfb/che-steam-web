@@ -1,9 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
 import { config } from "@/config";
-
 import { formatPrice } from "@/utils/formatPrice";
-
 import styles from "./styles.module.css";
 
 interface Tax {
@@ -18,9 +16,14 @@ interface Dolar {
   id: number;
 }
 
+interface Result {
+  total: string;
+  currency: string;
+}
+
 const Page = () => {
-  const [result, setResult] = useState<number>(0);
-  const [input, setInput] = useState<string>(""); // Cambiado a string para evitar NaN
+  const [result, setResult] = useState<Result[] | 0>([]);
+  const [input, setInput] = useState<string>("");
   const [dolar, setDolar] = useState<Dolar[]>([]);
   const [currency, setCurrency] = useState<string>("USD");
   const [taxes, setTaxes] = useState<Tax[]>([]);
@@ -37,9 +40,6 @@ const Page = () => {
     try {
       const response = await fetch(`${config.baseURL}/api/dolar`);
       const data = await response.json();
-
-      console.log(data);
-
       setDolar(data);
     } catch (error) {
       console.error(error);
@@ -50,14 +50,56 @@ const Page = () => {
     try {
       const response = await fetch(`${config.baseURL}/api/taxes`);
       const data = await response.json();
-
-      console.log(data);
-
       setTaxes(data);
     } catch (error) {
       console.error(error);
     }
   };
+
+  const calculatePrice = (price: number, currency: string) => {
+    const dolarPrice = dolar[0]?.price
+    let finalPrice = 0;
+
+    const totalTaxes = Array.isArray(taxes)
+      ? taxes.reduce((acc, tax) => acc + tax.percentage, 0)
+      : 0;
+
+    if (currency === "ARS") {
+      finalPrice = price * (1 + totalTaxes);
+    } else if (currency === "USD") {
+      finalPrice = price * dolarPrice * (1 + totalTaxes);
+    }
+
+    return formatPrice(finalPrice);
+  }
+
+  const calculateMepPrice = (price: number, currency: string) => {
+    const dolarPrice = dolar[1]?.price
+    let finalPrice = 0;
+
+    const totalTaxes = taxes.filter(tax => tax.name === "IVA")[0].percentage
+
+    if (currency === "ARS") {
+      finalPrice = price * (1 + totalTaxes);
+    } else if (currency === "USD") {
+      finalPrice = price * dolarPrice * (1 + totalTaxes);
+    }
+
+    return formatPrice(finalPrice);
+  }
+
+  const calculateCryptoPrice = (price: number, currency: string) => {
+    const dolarPrice = dolar[2]?.price
+    let finalPrice = 0;
+
+    if (currency === "ARS") {
+      finalPrice = price
+    } else if (currency === "USD") {
+      finalPrice = price * dolarPrice;
+    }
+
+    return formatPrice(finalPrice);
+  }
 
   const calculateResult = () => {
     const inputValue = parseFloat(input.toString());
@@ -66,23 +108,22 @@ const Page = () => {
       return;
     }
 
-    // Asegurarnos de que `taxes` es un array antes de usar reduce
-    const totalTaxes = Array.isArray(taxes)
-      ? taxes.reduce((acc, tax) => acc + tax.percentage, 0)
-      : 0;
+    const finalResult: Result[] = []
 
-    // Obtener el precio del dólar (suponemos que el primero en el array es el correcto)
-    const dolarPrice = dolar[0]?.price || 1;
+    finalResult.push({
+      total: calculatePrice(inputValue, currency),
+      currency: "Oficial"
+    })
 
-    let finalResult = 0;
+    finalResult.push({
+      total: calculateMepPrice(inputValue, currency),
+      currency: "MEP"
+    })
 
-    if (currency === "ARS") {
-      // Para ARS, solo sumamos impuestos
-      finalResult = inputValue * (1 + totalTaxes);
-    } else if (currency === "USD") {
-      // Para USD, convertimos a ARS y luego sumamos impuestos
-      finalResult = inputValue * dolarPrice * (1 + totalTaxes);
-    }
+    finalResult.push({
+      total: calculateCryptoPrice(inputValue, currency),
+      currency: "Crypto"
+    })
 
     setResult(finalResult);
   };
@@ -94,7 +135,7 @@ const Page = () => {
 
   return (
     <section className={styles.container}>
-      <h1>Calculator</h1>
+      <h1>Calculadora de precios</h1>
       <div className={styles.inputGroup}>
         <input
           type="text"
@@ -103,7 +144,6 @@ const Page = () => {
           className={styles.input}
           placeholder="Enter amount"
         />
-
         <select
           value={currency}
           onChange={handleCurrencyChange}
@@ -115,29 +155,42 @@ const Page = () => {
       </div>
 
       <button onClick={calculateResult} className={styles.button}>
-        Calculate
+        Calcular
       </button>
 
-      <ul>
-        {taxes?.map((tax) => (
-          <li key={tax.id}>
-            <p>
-              {tax.name} - {tax.percentage * 100}%
-            </p>
-          </li>
-        ))}
-      </ul>
-      <ul>
+      <h3>Cotizacion de dolar:</h3>
+
+      <ul className={styles.list}>
         {dolar?.map((dolar) => (
           <li key={dolar.id}>
             <p>
-              {dolar.name} - ${dolar.price}
+              {dolar.name}: ${dolar.price}
             </p>
           </li>
         ))}
       </ul>
 
-      <h2 className={styles.result}>Result: {formatPrice(result)}</h2>
+      <h2 className={styles.result}>Total:</h2>
+
+      <table className={styles.table}>
+        <thead>
+          <tr className={styles.tableRow}>
+            <th className={styles.tableHeader}><p>Dolar</p></th>
+            <th className={styles.tableHeader}><p>Precio total</p></th>
+          </tr>
+        </thead>
+        <tbody>
+          {
+            result !== 0 &&
+            result?.map(({ total, currency }, index) => (
+              <tr key={index} className={styles.tableRow}>
+                <td className={styles.tableCell}><p>{currency}</p></td>
+                <td className={styles.tableCell}><p>{total}</p></td>
+              </tr>
+            ))}
+        </tbody>
+      </table>
+
     </section>
   );
 };

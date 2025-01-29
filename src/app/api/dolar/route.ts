@@ -32,7 +32,6 @@ export async function GET() {
       dolares.push(newDolar)
     })
 
-    console.log(dolares)
     return new Response(JSON.stringify(dolares), { status: 200 })
   } catch (error) {
     console.error(error);

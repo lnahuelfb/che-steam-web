@@ -1,5 +1,16 @@
 [
   {
+    "version": "1.2.0",
+    "changes": [
+      {
+        "type": "feat",
+        "title": "Calculadora de precios para juegos fuera de Steam",
+        "description": "Se añadió una calculadora que permite conocer el precio en dólar tarjeta, MEP y dolar Crypto para juegos que no estén en Steam.",
+        "scope": "web"
+      }
+    ]
+  },
+  {
     "version": "1.1.1",
     "changes": [
       {
