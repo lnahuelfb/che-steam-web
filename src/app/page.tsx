@@ -36,12 +36,10 @@ const Page = () => {
   ]
 
   return (
-    <>
+    <main>
       <section className={styles.container}>
         <figure className={styles.imageContainer}>
-          <img src="/CheSteam.png" alt="Che Steam!"
-            // width={250} height={250}
-          />
+          <img src="/CheSteam.png" alt="Che Steam!" />
         </figure>
         <div className={styles.textContainer}>
           <h1>🎮 Che Steam! 🎮</h1>
@@ -71,7 +69,7 @@ const Page = () => {
         <h2 className={styles.title}>Comandos</h2>
         <CommandsTable commands={commands} />
       </section>
-    </>
+    </main>
   )
 }
 

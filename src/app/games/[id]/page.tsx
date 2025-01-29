@@ -33,7 +33,9 @@ function isGameDetails(data: GameDetails | Error): data is GameDetails {
   return !("error" in data);
 }
 
-export default async function GamePage(context: { params: Promise<PageProps["params"]> }) {
+export default async function GamePage(context: {
+  params: Promise<PageProps["params"]>
+}) {
   const params = await context.params;
   const { id } = params;
 
@@ -41,17 +43,18 @@ export default async function GamePage(context: { params: Promise<PageProps["par
 
   if (!isGameDetails(game)) {
     return (
-      <div className={styles.container}>
-        <h1>Error: {game.message}</h1>);
+      <main className={styles.container}>
+        <h1>Error: {game.message}</h1>;
         <Link href={'/search'} className={styles.button}>
           <p>Volver a buscar Juegos</p>
         </Link>
-      </div>)
+      </main>
+    )
   }
 
   return (
-    <div>
+    <main>
       <GameDetailsCard game={game} />
-    </div>
+    </main>
   );
 }

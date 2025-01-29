@@ -6,7 +6,7 @@ import { Analytics } from "@vercel/analytics/next";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Che Steam!",
+  title: "Che Steam",
   description: "Web para el bot de Discord Che Steam!",
   icons: {
     icon: "/CheSteam.png",
@@ -23,10 +23,8 @@ export default function RootLayout({
     <html lang="es">
       <body>
         <Header />
-        <main>
-          {children}
-          <Analytics />
-        </main>
+        {children}
+        <Analytics />
         <Footer />
       </body>
     </html>

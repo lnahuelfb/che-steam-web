@@ -38,13 +38,14 @@ export const GameCard = ({ game }: { game: Game }) => {
           <span className={styles.typeBadge}>{gameType}</span>
         </a>
         <ul className={styles.priceContainer}>
-          {game.formattedPrice === "Gratis" ? (
-            <li className={styles.priceRow}>
-              <span className={styles.priceHighlight}>¡Gratis!</span>
-            </li>
-          ) : (
-            renderPriceRow("💵", `${game.formattedPrice} USD`)
-          )}
+          {
+            game.formattedPrice === "Gratis" ? (
+              <li className={styles.priceRow}>
+                <span className={styles.priceHighlight}>¡Gratis!</span>
+              </li>
+            )
+              : (renderPriceRow("💵", `${game.formattedPrice} USD`))
+          }
           {renderPriceRow("💳", `${game.formattedTotalOfficialPrice} (🏛️${game.formattedOfficialTaxes})`)}
           {renderPriceRow("💰", `${game.formattedTotalMepPrice} (🏛️${game.formattedMepTaxes})`)}
           {renderPriceRow("🪙", `${game.formattedTotalCryptoPrice} (🏛️${game.formattedCryptoTaxes})`)}
@@ -53,11 +54,7 @@ export const GameCard = ({ game }: { game: Game }) => {
           <Link href={`/games/${game.id}`}>
             <p className={styles.link}>Ver más</p>
           </Link>
-          <a
-            href={`https://store.steampowered.com/app/${game.id}`}
-            target="_blank"
-            rel="noreferrer"
-          >
+          <a href={`https://store.steampowered.com/app/${game.id}`} target="_blank" rel="noreferrer">
             <p className={styles.link}>
               Ver en Steam
             </p>
