@@ -7,6 +7,7 @@
   margin: auto;
   box-shadow: 0 4px 16px rgba(0, 0, 0, 0.5);
   height: fit-content;
+  min-height: 525px;
 }
 
 .container h1 {
@@ -15,6 +16,10 @@
   margin-bottom: 20px;
   font-weight: 600;
   color: var(--text-primary);
+}
+
+.container h3 {
+  margin-top: 20px;
 }
 
 .inputGroup {
@@ -53,23 +58,6 @@
   outline: none;
 }
 
-.button {
-  background-color: var(--accent);
-  color: #fff;
-  padding: 14px 24px;
-  border: none;
-  border-radius: 6px;
-  width: 100%;
-  cursor: pointer;
-  font-size: 16px;
-  transition: background-color 0.3s ease;
-  margin: 12px 0;
-}
-
-.button:hover {
-  background-color: #00b094;
-}
-
 .list {
   display: flex;
   justify-content: flex-start;
@@ -103,7 +91,6 @@
 
 .table {
   width: 80%;
-
   border-collapse: collapse;
   margin-top: 10px;
   background-color: #171a21;
@@ -146,7 +133,7 @@
   margin: 0;
 }
 
-@media screen and (max-width: 425) {
+@media screen and (max-width: 425px) {
   .container {
     box-shadow: none;
   }

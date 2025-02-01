@@ -68,6 +68,19 @@ export interface Changes {
   scope?: ScopeType
 }
 
+export interface Tax {
+  name: string;
+  percentage: number;
+  id: number;
+}
+
+export interface Dolar {
+  name: string;
+  price: number;
+  id: number;
+}
+
+
 export type ChangeType = 'release' | 'feature' | 'fix';
 
 export type ScopeType = 'web' | 'server' | 'general' | 'bot';
