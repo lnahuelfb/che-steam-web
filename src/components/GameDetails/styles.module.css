@@ -1,9 +1,7 @@
 .card {
   font-family: Arial, sans-serif;
   background-color: #1b2838;
-  /* Fondo principal: azul oscuro */
   color: #c7d5e0;
-  /* Texto principal: gris claro */
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.5);
@@ -24,14 +22,13 @@
 .name {
   font-size: 28px;
   color: #66c0f4;
-  /* Color de acento: azul celeste */
   font-weight: bold;
 }
 
 .description {
   font-size: 16px;
   color: #8f98a0;
-  /* Texto secundario: gris medio */
+
   line-height: 1.6;
 }
 
@@ -46,38 +43,36 @@
 .steamLink {
   display: inline-block;
   padding: 10px 20px;
-  background-color: #5c7e10; /* Verde oscuro característico de Steam */
-  color: #ffffff; /* Texto blanco para contraste */
-  text-decoration: none; /* Quitar el subrayado */
-  border-radius: 5px; /* Bordes redondeados */
+  background-color: #5c7e10;
+  color: #ffffff;
+  text-decoration: none;
+  border-radius: 5px;
   font-weight: bold;
   font-size: 14px;
   text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
-  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.2);
 }
 
 .steamLink:hover {
-  background-color: #698d13; /* Verde más claro al pasar el mouse */
-  transform: scale(1.05); /* Ligeramente más grande */
+  background-color: #698d13;
+  transform: scale(1.05);
   text-decoration: none;
 }
 
 .steamLink:active {
-  transform: scale(0.95); /* Reducir tamaño al hacer clic */
+  transform: scale(0.95);
 }
 
 
 .free {
   color: #28a745;
-  /* Verde para "gratis" */
   font-size: 18px;
   font-weight: bold;
 }
 
 .initialPrice {
   color: #8f98a0;
-  /* Precio original: gris medio */
   font-size: 18px;
   text-decoration: line-through;
   margin-right: 10px;
@@ -85,7 +80,6 @@
 
 .finalPrice {
   color: #66c0f4;
-  /* Color de acento: azul celeste */
   font-size: 24px;
   font-weight: bold;
 }
@@ -107,7 +101,6 @@
 
 .packageGroup h4 {
   color: #66c0f4;
-  /* Color de acento: azul celeste */
   margin-bottom: 10px;
 }
 
@@ -116,7 +109,6 @@
   border-collapse: collapse;
   margin-top: 10px;
   background-color: #171a21;
-  /* Fondo secundario: gris muy oscuro */
   border-radius: 10px;
 }
 
@@ -125,29 +117,23 @@
   padding: 12px 15px;
   text-align: left;
   border-bottom: 1px solid #2a475e;
-  /* Bordes: azul grisáceo */
 }
 
 .table th {
   background-color: #282c34;
-  /* Fondo oscuro para encabezados */
   color: #66c0f4;
-  /* Color de acento: azul celeste */
 }
 
 .table tr:nth-child(even) {
   background-color: #3a3a3a;
-  /* Gris oscuro para filas alternadas */
 }
 
 .table tr:hover {
   background-color: #2a475e;
-  /* Bordes: azul grisáceo */
 }
 
 .table td {
   color: #8f98a0;
-  /* Texto secundario: gris medio */
 }
 
 .table th,

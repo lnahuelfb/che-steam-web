@@ -7,7 +7,7 @@ export const Header = () => {
   const [menuOpen, setMenuOpen] = useState(false)
 
   const links = [
-    { href: "/", label: "Home" },
+    { href: "/", label: "Inicio" },
     { href: "/search", label: "Buscar juegos" },
     { href: "/calculator", label: "Calcula el precio" },
     { href: "/changelog", label: "Changelog" },
@@ -17,7 +17,7 @@ export const Header = () => {
     <header className={styles.header}>
       <Link href="/" className={styles.link}>
         <img src="/CheSteam.png" alt="CheSteam" className={styles.logo} />
-        <h1 className={styles.title}>Che Steam!</h1>
+        <h1 className={styles.title}>Che Steam</h1>
       </Link>
       <button
         className={styles.hamburger}

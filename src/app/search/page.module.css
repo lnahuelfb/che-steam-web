@@ -96,11 +96,8 @@
 .referenceRow {
   display: flex;
   justify-content: center;
-  /* Centra los elementos horizontalmente */
   gap: 12px;
-  /* Espaciado entre los elementos */
   flex-wrap: wrap;
-  /* Hace que los elementos se ajusten si no caben */
 }
 
 .referenceItem {
