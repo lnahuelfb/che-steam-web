@@ -8,6 +8,7 @@ import "./globals.css";
 export const metadata: Metadata = {
   title: "Che Steam",
   description: "Web para el bot de Discord Che Steam!",
+  authors: [{ name: "Nahuel Fernandez Beschtedt" }],
   icons: {
     icon: "/CheSteam.png",
     shortcut: "/CheSteam.png",

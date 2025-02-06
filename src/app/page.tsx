@@ -42,7 +42,7 @@ const Page = () => {
           <img src="/CheSteam.png" alt="Che Steam!" />
         </figure>
         <div className={styles.textContainer}>
-          <h1>🎮 Che Steam! 🎮</h1>
+          <h1>🎮 Che Steam 🎮</h1>
           <h2>Conoce el Precio Real de tus Juegos</h2>
           <h3>
             Convierte precios de videojuegos en pesos argentinos, con impuestos incluidos
