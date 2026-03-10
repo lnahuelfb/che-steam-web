@@ -1,109 +1,174 @@
 .gameCard {
   display: flex;
   flex-direction: column;
-  gap: 12px;
-  padding: 16px;
-  border: 1px solid var(--border);
-  border-radius: 8px;
-  background-color: var(--primary-bg);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background: linear-gradient(180deg, #1b2838 0%, #171a21 100%);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 4px;
+  overflow: hidden;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+  width: 400px;
 }
 
 .gameCard:hover {
-  transform: scale(1.02);
-  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  transform: translateY(-4px);
+  border-color: #67c1f5;
+  box-shadow: 0 8px 24px rgba(103, 193, 245, 0.2);
+}
+
+.imageWrapper {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 231 / 130;
 }
 
 .image {
-  width: 231px;
-  height: 130px;
-  border-radius: 8px;
-  object-fit: fill;
   width: 100%;
-  border: 2px solid var(--border);
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+.usdBadge {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  background-color: #4c6b22;
+  color: #beee11;
+  padding: 4px 10px;
+  font-weight: 900;
+  font-size: 1.1rem;
+  border-radius: 2px;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.8);
 }
 
 .infoContainer {
+  padding: 16px;
   display: flex;
   flex-direction: column;
-  gap: 8px;
+  gap: 12px;
 }
 
-.titleLink {
-  text-decoration: none;
-  color: var(--accent);
+.cardHeader {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  gap: 8px;
 }
 
 .title {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-weight: 700;
+  color: #fff;
   margin: 0;
-  line-height: 1.4;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  max-width: 70%;
-  word-wrap: break-word;
-  white-space: normal;
+  line-height: 1.2;
 }
 
 .typeBadge {
-  background-color: var(--button-bg);
-  color: var(--text-primary);
-  font-size: 0.875rem;
-  padding: 4px 12px;
-  border-radius: 12px;
-  margin-left: 10px;
-  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.3);
-  max-width: 30%;
+  background: rgba(103, 193, 245, 0.1);
+  color: #67c1f5;
+  font-size: 0.7rem;
+  padding: 2px 8px;
+  border-radius: 2px;
+  text-transform: uppercase;
+  border: 1px solid rgba(103, 193, 245, 0.3);
+  white-space: nowrap;
 }
 
-.priceContainer {
-  list-style: none;
-  margin: 0;
-  padding: 0;
-  display: grid;
+.taxBreakdownContainer {
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  min-height: 315px;
+}
+
+.breakdownTitle {
+  font-size: 0.65rem;
+  font-weight: 800;
+  color: #556772;
+  margin: 0 0 4px 0;
+  letter-spacing: 1px;
+}
+
+.priceDetailRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: start;
+  padding-bottom: 6px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.03);
+}
+
+.priceDetailRow:last-child {
+  border-bottom: none;
+}
+
+.methodInfo {
+  display: flex;
+  align-items: center;
   gap: 8px;
 }
 
-.priceRow {
-  font-size: 1rem;
-  color: var(--text-secondary);
+.methodIcon { font-size: 1.1rem; }
+
+.methodName {
+  font-size: 0.85rem;
+  color: #8f98a0;
+}
+
+.valuesInfo {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
+  flex-direction: column;
+  align-items: flex-end;
+}
+
+.totalValue {
+  font-size: 1rem;
+  color: #fff;
+  font-weight: 600;
 }
 
 .priceHighlight {
-  font-weight: 700;
-  color: var(--accent);
+  color: #beee11;
+  font-weight: 800;
 }
 
-.link {
-  display: inline-block;
-  color: var(--text-primary) !important;
+.taxValue {
+  font-size: 0.7rem;
+  color: #ff4d4d;
+  font-weight: 500;
+}
+
+.actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.btnPrimary, .btnSecondary {
+  text-align: center;
+  padding: 8px;
+  border-radius: 2px;
+  font-size: 0.85rem;
   font-weight: 600;
   text-decoration: none;
-  padding: 8px 16px;
-  border: 1px solid var(--button-bg);
-  border-radius: 6px;
-  background-color: var(--button-bg);
-  transition: background-color 0.2s ease, border-color 0.2s ease;
+  transition: filter 0.2s;
 }
 
-.link:hover {
-  background-color: var(--button-hover);
-  border-color: var(--button-hover);
-  color: var(--text-primary);
-  text-decoration: none;
+.btnPrimary {
+  background: linear-gradient(to right, #47bfff 5%, #1a44c2 95%);
+  color: #fff;
 }
 
-.linksContainer {
-  display: flex;
-  gap: 8px;
-  justify-content: space-between;
+.btnSecondary {
+  background: #3d4450;
+  color: #d2d2d2;
+}
+
+.btnPrimary:hover, .btnSecondary:hover {
+  filter: brightness(1.2);
 }

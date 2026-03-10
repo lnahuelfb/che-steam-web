@@ -1,5 +1,16 @@
 [
   {
+    "version": "1.2.1",
+    "changes": [
+      {
+        "type": "feat",
+        "title": "Rediseño visual de las cards de juegos",
+        "description": "Nueva interfaz en la búsqueda con mejor jerarquía de precios y desglose detallado de costos.",
+        "scope": "web"
+      }
+    ]
+  },
+  {
     "version": "1.2.0",
     "changes": [
       {
