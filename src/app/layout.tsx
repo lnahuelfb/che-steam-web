@@ -7,7 +7,7 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: "Che Steam",
-  description: "Web para el bot de Discord Che Steam!",
+  description: "Precio de juegos de Steam en pesos argentinos, con impuestos y al tipo de cambio que elijas.",
   authors: [{ name: "Nahuel Fernandez Beschtedt" }],
   icons: {
     icon: "/CheSteam.png",

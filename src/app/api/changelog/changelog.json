@@ -97,7 +97,7 @@
       {
         "type": "release",
         "title": "Primera versión del proyecto",
-        "description": "Lanzamiento oficial del proyecto, tanto en web, server como el Bot",
+        "description": "Lanzamiento oficial del proyecto",
         "scope": "general"
       }
     ],

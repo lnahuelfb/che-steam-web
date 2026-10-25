@@ -17,7 +17,7 @@ Live demo: <https://che-steam.vercel.app>
 | Game list and prices (region `AR`) | Steam Store [`search/suggest`](https://store.steampowered.com/search/suggest) endpoint |
 | Game details and editions | Steam Store `api/appdetails` endpoint |
 | Official, MEP and crypto exchange rates | [dolarapi.com](https://dolarapi.com) (`/v1/dolares`) |
-| Tax rates | Defined in the backend, in `src/config/taxes.ts` |
+| Tax rates | Defined in this repo, in `src/server/taxes.ts` |
 
 ## How prices are calculated
 
@@ -33,16 +33,18 @@ final ARS = USD price × (1 + sum of applicable taxes) × exchange rate (venta)
 | MEP | IVA only |
 | Crypto | none |
 
-The rates themselves (IVA, IIBB) live in a single file of the backend, so they can be updated in one place. IIBB varies by jurisdiction (2% in CABA, 3% in Buenos Aires province); since the app does not ask for a location, it uses the CABA rate. The exchange rate used is the *venta* (sell) quote.
+The rates themselves (IVA, IIBB) live in a single file, `src/server/taxes.ts`, so they can be updated in one place. IIBB varies by jurisdiction (2% in CABA, 3% in Buenos Aires province); since the app does not ask for a location, it uses the CABA rate. The exchange rate used is the *venta* (sell) quote.
 
 ## Architecture
 
 ```
-Browser ──► Next.js route handlers (this repo, /api/*) ──► Express backend ──► Steam / dolarapi.com
+Browser ──► Next.js route handlers (/api/*) ──► Steam Store / dolarapi.com
 ```
 
-- This repo is a Next.js (App Router) app. Its `/api/games`, `/api/games/details`, `/api/dolar` and `/api/taxes` routes proxy the backend ([cheSteam-backend](https://github.com/lnahuelfb/cheSteam-backend)), which fetches and normalizes the external data and does the price math.
-- Responses are sent with `Cache-Control` headers (`s-maxage` + `stale-while-revalidate`) so the Vercel edge cache serves repeated requests without waking the serverless functions:
+A single Next.js (App Router) app. The route handlers fetch and normalize the external data and do the price math (`src/server/`), so a request crosses one serverless function instead of two.
+
+- `fetch` calls use Next's data cache (24 h revalidation), which persists across serverless cold starts.
+- Responses are sent with `Cache-Control` headers (`s-maxage` + `stale-while-revalidate`) so the Vercel edge cache serves repeated requests without waking the function:
 
   | Route | `s-maxage` | `stale-while-revalidate` |
   | --- | --- | --- |
@@ -52,23 +54,21 @@ Browser ──► Next.js route handlers (this repo, /api/*) ──► Express b
 
 ## Running locally
 
-Requirements: Node.js 18+ and the backend running locally.
+Requirements: Node.js 18+.
 
-1. Start the backend ([cheSteam-backend](https://github.com/lnahuelfb/cheSteam-backend)); it listens on port `3001` by default.
-2. Install and start this app:
+1. Install and start the app:
 
    ```bash
    npm install
    npm run dev
    ```
 
-3. Open <http://localhost:3000>.
+2. Open <http://localhost:3000>.
 
 ### Environment variables
 
 | Variable | Default | Description |
 | --- | --- | --- |
-| `NEXT_PUBLIC_API_URL` | `http://localhost:3001/api` | Base URL of the backend, including the `/api` prefix its routes are mounted under (e.g. `https://your-backend.vercel.app/api`) |
 | `NEXT_PUBLIC_BASE_URL` | `http://localhost:3000` | Public URL of this app, used by server-rendered pages to call its own `/api` routes |
 
 ## Scripts
