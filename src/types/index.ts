@@ -50,11 +50,6 @@ type Package = {
 }
 
 
-export interface Commands {
-  command: string
-  description: string
-}
-
 export interface ChangeLog {
   version: string
   changes: Changes[]

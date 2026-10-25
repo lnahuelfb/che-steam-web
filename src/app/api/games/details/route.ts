@@ -1,4 +1,4 @@
-import { config } from "@/config";
+import { fetchGameDetails } from "@/server/steam";
 import { jsonResponse } from "@/utils/cacheControl";
 
 export async function GET(request: Request) {
@@ -13,11 +13,9 @@ export async function GET(request: Request) {
   }
 
   try {
-    const response = await fetch(`${config.apiURL}/games/details/${id}`);
+    const data = await fetchGameDetails(id);
 
-    const data = await response.json();
-
-    if (!data || data.length === 0) {
+    if (!data) {
       return new Response(JSON.stringify({ error: "No se pudo encontrar el juego." }), { status: 404 });
     }
 
@@ -27,5 +25,4 @@ export async function GET(request: Request) {
 
     return new Response(JSON.stringify({ error: "No se pudo encontrar el juego." }), { status: 404 });
   }
-
 }

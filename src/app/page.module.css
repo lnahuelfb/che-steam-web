@@ -31,31 +31,31 @@
   text-align: start;
 }
 
-.textContainer .ctaButton {
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--border);
+/* Primary and secondary call-to-action links on the home page */
+.ctaButton,
+.secondaryButton {
+  padding: 0.75rem 1.5rem;
+  border: 1px solid var(--accent);
   border-radius: 5px;
-  font-size: 1.2rem;
-  background-color: #5865f2;
-  color: white;
-  cursor: pointer;
-  width: fit-content;
-  transition: 0.3s;
-  text-align: center;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ctaButton p {
-  padding-left: 1rem;
-  color: white;
+  font-size: 1.1rem;
   font-weight: bold;
+  text-align: center;
+  transition: 0.3s;
 }
 
 .ctaButton {
-  height: 4rem;
-  margin-top: 0;
+  background-color: var(--accent);
+  color: var(--primary-bg);
+}
+
+.secondaryButton {
+  color: var(--accent);
+}
+
+.ctaButton:hover,
+.secondaryButton:hover {
+  opacity: 0.85;
+  text-decoration: none;
 }
 
 .imageContainer {
@@ -84,14 +84,6 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-}
-
-.ctaButton a:hover {
-  text-decoration: none;
-}
-
-.commandsContainer .title {
-  text-align: center;
 }
 
 .buttonsContainer {
