@@ -1,4 +1,5 @@
 import { config } from "@/config";
+import { jsonResponse } from "@/utils/cacheControl";
 
 interface Dolar {
   name: string,
@@ -32,11 +33,11 @@ export async function GET() {
       dolares.push(newDolar)
     })
 
-    return new Response(JSON.stringify(dolares), { status: 200 })
+    return jsonResponse(dolares, "dolar")
   } catch (error) {
     console.error(error);
     return new Response(JSON.stringify({
-      error: "Error al obtener los impuestos."
+      error: "Error al obtener el precio del dólar."
     }), { status: 404 });
   }
 }

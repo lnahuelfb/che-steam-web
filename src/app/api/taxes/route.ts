@@ -1,4 +1,5 @@
 import { config } from "@/config";
+import { jsonResponse } from "@/utils/cacheControl";
 
 interface Tax {
   name: string,
@@ -34,7 +35,7 @@ export async function GET() {
       taxes.push(formatTax)
     })
 
-    return new Response(JSON.stringify(taxes), { status: 200 });
+    return jsonResponse(taxes, "taxes");
   } catch (error) {
     console.error(error);
 
