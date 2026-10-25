@@ -29,7 +29,7 @@ export default function Page() {
     setLoading(true);
 
     try {
-      const res = await fetch(`/api/games?title=${search}`);
+      const res = await fetch(`/api/games?title=${encodeURIComponent(search)}`);
 
       const data = await res.json();
 
@@ -83,7 +83,10 @@ export default function Page() {
         </div>
 
         <div className={styles.games}>
-          {loading && <p>Cargando...</p>}
+          {loading &&
+            Array.from({ length: 3 }, (_, i) => (
+              <div key={i} className={styles.skeleton} aria-hidden="true" />
+            ))}
           {error && <h3>{error}</h3>}
 
           {games?.length > 0 &&

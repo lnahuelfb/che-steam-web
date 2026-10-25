@@ -1,4 +1,5 @@
 import { config } from "@/config";
+import { jsonResponse } from "@/utils/cacheControl";
 
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
@@ -12,7 +13,7 @@ export async function GET(request: Request) {
   }
 
   try {
-    const response = await fetch(`${config.apiURL}/games/${title}`);
+    const response = await fetch(`${config.apiURL}/games/${encodeURIComponent(title)}`);
 
     const data = await response.json();
 
@@ -20,7 +21,7 @@ export async function GET(request: Request) {
       return new Response(JSON.stringify({ error: "No se pudo encontrar el juego." }), { status: 404 });
     }
 
-    return new Response(JSON.stringify(data), { status: 200 });
+    return jsonResponse(data, "games");
   } catch (error) {
     console.error(error);
 
