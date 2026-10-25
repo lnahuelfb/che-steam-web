@@ -93,3 +93,7 @@ Next.js 15 · React 19 · TypeScript · CSS Modules · Vercel
 ## Disclaimer
 
 Prices are estimates. Actual charges depend on your bank or card issuer and on the tax rules in force when you pay. Not affiliated with Valve or Steam.
+
+## License
+
+[MIT](LICENSE)
