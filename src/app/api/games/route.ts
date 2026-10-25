@@ -1,6 +1,8 @@
 import { searchGames } from "@/server/steam";
 import { jsonResponse } from "@/utils/cacheControl";
 
+export const runtime = "edge";
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const title = searchParams.get("title");

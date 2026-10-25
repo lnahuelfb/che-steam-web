@@ -1,6 +1,8 @@
 import { fetchDolarPrice } from "@/server/dolar";
 import { jsonResponse } from "@/utils/cacheControl";
 
+export const runtime = "edge";
+
 export async function GET() {
   const quotes = await fetchDolarPrice();
 

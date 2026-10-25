@@ -1,6 +1,8 @@
 import { fetchGameDetails } from "@/server/steam";
 import { jsonResponse } from "@/utils/cacheControl";
 
+export const runtime = "edge";
+
 export async function GET(request: Request) {
   const { searchParams } = new URL(request.url);
   const id = searchParams.get("id");
