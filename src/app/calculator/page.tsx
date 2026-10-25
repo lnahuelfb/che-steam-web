@@ -1,6 +1,5 @@
 "use client";
 import { useEffect, useState, useMemo } from "react";
-import { config } from "@/config";
 import { formatPrice } from "@/utils/formatPrice";
 import { Dolar, Tax } from "@/types";
 import styles from "./styles.module.css";
@@ -16,8 +15,8 @@ const Page = () => {
     const fetchData = async () => {
       try {
         const [dolarRes, taxesRes] = await Promise.all([
-          fetch(`${config.baseURL}/api/dolar`).then((res) => res.json()),
-          fetch(`${config.baseURL}/api/taxes`).then((res) => res.json()),
+          fetch("/api/dolar").then((res) => res.json()),
+          fetch("/api/taxes").then((res) => res.json()),
         ]);
         setDolar(dolarRes);
         setTaxes(taxesRes);
@@ -161,8 +160,8 @@ export default Page;
 //     const fetchData = async () => {
 //       try {
 //         const [dolarRes, taxesRes] = await Promise.all([
-//           fetch(`${config.baseURL}/api/dolar`).then((res) => res.json()),
-//           fetch(`${config.baseURL}/api/taxes`).then((res) => res.json()),
+//           fetch("/api/dolar").then((res) => res.json()),
+//           fetch("/api/taxes").then((res) => res.json()),
 //         ]);
 //         setDolar(dolarRes);
 //         setTaxes(taxesRes);

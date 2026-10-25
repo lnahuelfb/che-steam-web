@@ -4,6 +4,12 @@ Che Steam shows what a Steam game, DLC or bundle really costs in Argentine pesos
 
 Live demo: <https://che-steam.vercel.app>
 
+## Screenshots
+
+![Search results with the ARS price breakdown per exchange rate](docs/search.png)
+
+![Price calculator](docs/calculator.png)
+
 ## Features
 
 - **Search** games, DLCs and bundles and see the final ARS price under each exchange rate, with the tax amount broken out.
